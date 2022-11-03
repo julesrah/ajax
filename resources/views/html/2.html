@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+
+<link href="./css/site.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js" integrity="sha256-RQLbEU539dpygNMsBGZlplus6CkitaLy0btTCHcULpI=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function() {
+   $('#dob').datepicker({
+   	 changeMonth : true ,
+   	 changeYear : true,
+   	 yearRange : '-100:+10',
+   	 maxDate : '+10y',
+   	 dateFormat : 'yy-mm-dd'
+   	});
+   $('#meal').selectmenu({
+   	width: 200,
+   	button: "ui-icon-circle-triangle-s"
+   });
+   $('#colors').selectmenu({
+		width : 300,
+
+		change : function (event, ui) {
+			console.log(ui);
+		var newImage;
+			if (ui.item.label === 'Red') {
+			newImage = './images/small/red.jpg';
+			} else if (ui.item.label === 'Green') {
+			newImage = './images/small/green.jpg';
+			} else {
+			newImage = './images/small/blue.jpg';
+			}
+			$('#shirt').attr('src', newImage);
+		}
+	});
+}); // end ready
+</script>
+</head>
+<body>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+	</header>
+	<div class="content">
+		<div class="main">
+			<h1>A Birthday Picker</h1>
+			<form>
+			  <div>
+			    <label for="dob" class="label">What's your birth date?</label>
+			    <input type="text" id="dob" name="birthdate">
+			    <select name="meal" id="meal">
+					<option>No meal</option>
+					<option>Vegan</option>
+					<option>Gluten Free</option>
+					<option>Vegetarian</option>
+					<option>Meat eater</option>
+				</select>
+				<select id="colors">
+					<option value="R785">Red</option>
+					<option value="G101">Green</option>
+					<option value="B498">Blue</option>
+				</select>
+			  </div>
+			</form>
+			<br>
+			<br>
+
+			<div class = "row">
+			<img src="./images/small/red.jpg" id="shirt" alt="Buy our shirts!">
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+	</footer>
+</div>
+
+</html>

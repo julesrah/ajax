@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+
+<link href="./css/site.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js" integrity="sha256-RQLbEU539dpygNMsBGZlplus6CkitaLy0btTCHcULpI=" crossorigin="anonymous"></script>
+
+<script>
+	var airports = [
+  { value : "PDX", label: "Portland International Airport, Portland, OR" },
+  { value : "SFO", label: "San Francisco, CA" },
+  { value : "SJC", label: "San Jose, CA" },
+  { value : "KOA", label: "Keahole, HI" },
+  { value : "ORD", label: "Chicago O'Hare International Airport, Chicago, IL" },
+  { value : "MDW", label: "Chicago Midway Airport, Chicago, IL" },
+  { value : "JFK", label: "John F. Kennedy International Airport, New York, NY" },
+  { value : "LGA", label: "La Guardia Airport, New York, NY" },
+  { value : "IAD", label: "Washington Dulles International Airport, Washington, DC" },
+  { value : "CDG", label: "Charles De Gaulle International Airport, Paris, France" },
+  { value : "CGH", label: "Congonhas International Airport, Sao Paulo, Brazil" },
+  { value : "CGK", label: "Soekarno-Hatta International Airport, Jakarta, Indonesia" },
+  { value : "LHR", label: "London Heathrow Airport, London, United Kingdom" },
+  { value : "FRA", label: "Frankfurt International Airport, Frankfurt, Germany" },
+  { value : "HND", label: "Tokyo International Airport, Tokyo, Japan" },
+];
+$(document).ready(function() {
+   $('#radio').buttonset();
+   $('#check').buttonset();
+   $('#button').button({
+   	icons : {
+   		secondary : 'ui-icon-circle-arrow-e'
+   	}
+   });
+   $('#submit').button();
+     $('#airport').autocomplete({ 
+      source : airports});
+}); // end ready
+</script>
+</head>
+<body>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+	</header>
+	<div class="content">
+		<div class="main">
+			<h1>jQueryUI Button Widget</h1>
+			<form>
+				<div>
+			    <label for="airport" class="label">Find an airport</label>
+			    <input type="text" id="airport" name="airport">
+			  </div>
+			  <div id="radio">
+			    <p class="label">Number of bags to check</p>
+			    <input type="radio" id="none" name="bags" checked="checked">
+      		<label for="none">0</label>
+ 
+      		<input type="radio" id="one" name="bags">
+      		<label for="one">1</label>
+ 
+      		<input type="radio" id="two" name="bags">
+      		<label for="two">2</label>
+			  </div>
+        <div id="check">
+          <p class="label">Checkboxes</p>
+          <input type="checkbox" id="aisle" name="aisle">
+          <label for="aisle">Aisle</label>
+ 
+          <input type="checkbox" id="window" name="window">
+          <label for="window">Window</label>
+ 
+          <input type="checkbox" id="exit" name="exit">
+          <label for="exit">Exit Row</label>
+
+          <input type="checkbox" id="any" name="any">
+          <label for="any">Any seat</label>
+        </div>
+			  <div>
+          <p class="label">A Button Element</p>
+				  <button id="button">&lt;button&gt;</button>
+			  </div>
+        <div>
+          <p class="label">A Submit Button</p>
+          <input type="submit" value="Submit this form!" id="submit">
+        </div>
+			</form>
+		</div>
+	</div>
+	<footer>
+		<p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+	</footer>
+</div>
+
+</html>

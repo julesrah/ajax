@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+
+<link href="./css/site.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js" integrity="sha256-RQLbEU539dpygNMsBGZlplus6CkitaLy0btTCHcULpI=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function() {
+  $('#photos img').draggable({
+    revert : "invalid",
+  	start : function (event, ui) {
+      ui.helper.css('transform', 'rotate(5deg) scale(1.5)');
+    },
+    stop : function (event, ui) {
+      ui.helper.css('transform', 'rotate(0deg) scale(1)');
+    },
+    zIndex : 100
+  });
+  $('#trashcan').droppable({
+    activeClass : 'highlight',
+  	drop : function (event, ui) {
+  		ui.helper.hide('explode');
+  		$(this).attr('src','../images/trash-can.jpg');
+  	}
+  });
+}); // end ready
+</script>
+</head>
+<body>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+	</header>
+	<div class="content">
+		<div class="main">
+			<h1>Trash It!</h1>
+		</div>
+		<img src="../images/trash-can.jpg" id="trashcan">
+    <div id="photos">
+      <img src="../images/1.jpg">
+      <img src="../images/2.jpg">
+      <img src="../images/3.jpg">
+      <img src="../images/4.jpg">
+    </div>
+	</div>
+	<footer>
+		<p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+	</footer>
+</div>
+
+</html>

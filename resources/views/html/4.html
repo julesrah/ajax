@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+
+<link href="./css/site.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js" integrity="sha256-RQLbEU539dpygNMsBGZlplus6CkitaLy0btTCHcULpI=" crossorigin="anonymous"></script>
+
+<script>
+	var airports = [
+  { value : "PDX", label: "Portland International Airport, Portland, OR" },
+  { value : "SFO", label: "San Francisco, CA" },
+  { value : "SJC", label: "San Jose, CA" },
+  { value : "KOA", label: "Keahole, HI" },
+  { value : "ORD", label: "Chicago O'Hare International Airport, Chicago, IL" },
+  { value : "MDW", label: "Chicago Midway Airport, Chicago, IL" },
+  { value : "JFK", label: "John F. Kennedy International Airport, New York, NY" },
+  { value : "LGA", label: "La Guardia Airport, New York, NY" },
+  { value : "IAD", label: "Washington Dulles International Airport, Washington, DC" },
+  { value : "CDG", label: "Charles De Gaulle International Airport, Paris, France" },
+  { value : "CGH", label: "Congonhas International Airport, Sao Paulo, Brazil" },
+  { value : "CGK", label: "Soekarno-Hatta International Airport, Jakarta, Indonesia" },
+  { value : "LHR", label: "London Heathrow Airport, London, United Kingdom" },
+  { value : "FRA", label: "Frankfurt International Airport, Frankfurt, Germany" },
+  { value : "HND", label: "Tokyo International Airport, Tokyo, Japan" },
+];
+$(document).ready(function() {
+   $('#departure').datepicker({
+      minDate : 0,
+      maxDate : '1y'
+   });
+   $('#airport').autocomplete({ source : airports});
+   $('#meal').selectmenu({width : 200});
+   $('#bags').buttonset();
+   $('#seatTypes').buttonset();
+   $('#next').button({
+   	icons : {
+   		secondary : 'ui-icon-circle-arrow-e'
+   	}
+   });
+
+   $('#note').draggable({
+   	handle:'h2',
+   	cursor:'pointer',
+   	revert: true,
+   	axis: 'y',
+    drag : function (e,ui) {
+      $('#left').text(ui.position.left);
+      $('#top').text(ui.position.top);
+      $('#oleft').text(ui.offset.left);
+      $('#otop').text(ui.offset.top);
+      $('#originalleft').text(ui.originalPosition.top);
+    }
+  });
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+	</header>
+	<div class="content">
+		<div class="main">
+			<div id="note">
+		        <h2>You can drag me</h2>
+		        <p>I'm a note on the page.</p>
+		        <p>Left: <br>ui.position.left: <span id="left"></span><br> ui.offset.left: <span id="oleft"></span><br> ui.originalposition.left: <span id="originalleft"></span> </p>
+		        <p>Top: <br>ui.position.top: <span id="top"></span><br> ui.offset.top: <span id="otop"></span></p>
+		      </div>
+			<h1>One-Way Airlines: Let's make a reservation</h1>
+			<form>
+			  <div>
+			    <label for="departure" class="label">Pick a departure date</label>
+			    <input type="text" id="departure" name="departure">
+			  </div>
+			  <div>
+			    <label for="airport" class="label">Find an airport</label>
+			    <input type="text" id="airport" name="airport">
+			  </div>
+			  <div>
+			  	<label for="meal" class="label">Meal Options</label>
+			  	<select name="meal" id="meal">
+			  		<option>No meal</option>
+			  		<option>Vegan</option>
+			  		<option>Gluten Free</option>
+			  		<option>Vegetarian</option>
+			  		<option>Meat eater</option>
+			  	</select>
+			  </div>
+			  <div id="bags">
+			    <p class="label">Number of bags to check</p>
+			    <input type="radio" id="none" name="bags" checked="checked">
+      		<label for="none">0</label>
+ 
+      		<input type="radio" id="one" name="bags">
+      		<label for="one">1</label>
+ 
+      		<input type="radio" id="two" name="bags">
+      		<label for="two">2</label>
+			  </div>
+        <div id="seatTypes">
+          <p class="label">Type of seat you'd like</p>
+          <input type="checkbox" id="aisle" name="aisle">
+          <label for="aisle">Aisle</label>
+ 
+          <input type="checkbox" id="window" name="window">
+          <label for="window">Window</label>
+ 
+          <input type="checkbox" id="exit" name="exit">
+          <label for="exit">Exit Row</label>
+
+          <input type="checkbox" id="any" name="any">
+          <label for="any">Any seat</label>
+        </div>
+			  <div>
+				  <button id="next">Continue reservation process</button>
+			  </div>
+			</form>
+		</div>
+	</div>
+	<footer>
+		<p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+	</footer>
+</div>
+</body>
+</html>

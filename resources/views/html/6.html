@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="./css/site.css" rel="stylesheet">
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js" integrity="sha256-RQLbEU539dpygNMsBGZlplus6CkitaLy0btTCHcULpI=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+	$('#hello').dialog({
+	  
+	  modal: true,
+  	resizable: true,
+  	draggable: true,
+  	hide: 'explode'
+	}
+);
+  
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+	</header>
+	<div class="content">
+		<div class="main">
+			<h1>Hello World</h1>
+			<p>Notice that the dialog box looks so much better than an Alert!<a href="panel1.htlm" id="clicker">open login</a></p>
+			<div id="hello" title="Hello World!">
+				<p>This dialog box is actually a div, that's placed on the page using absolute positioning.</p>
+				<p>Try dragging the dialog around the screen. You can!</p>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+	</footer>
+</div>
+</body>
+</html>
